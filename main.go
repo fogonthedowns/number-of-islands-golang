@@ -11,6 +11,7 @@ func numIslands(grid [][]byte) int {
 
 	for r := 0; r < nr; r++ {
 		for c := 0; c < nc; c++ {
+			// look for, mark and score a new island
 			if grid[r][c] == '1' {
 				num_islands++
 				grid[r][c] = '0'
@@ -18,6 +19,7 @@ func numIslands(grid [][]byte) int {
 				continue
 			}
 
+			// clean up work, to mark anything around that island as found
 			queue := make([][]int, 0)
 			queue = append(queue, []int{r, c})
 
